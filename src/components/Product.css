@@ -59,3 +59,69 @@
   border: 1px solid #ccc;
   margin: 12px;
 }
+.checkout {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  animation: pop 0.5s alternate;
+}
+/* // pop aninmation for checkout button */
+@keyframes pop {
+  0% {
+    transform: scale(0);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+.form-group {
+  margin: 12px;
+}
+label {
+  font-size: 1.2rem;
+}
+.form-control {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin: 12px;
+}
+.form-control:focus {
+  border: 1px solid blue;
+}
+.form-control:focus ~ .form-control-feedback {
+  color: blue;
+}
+.form-control-feedback {
+  color: red;
+  font-size: 1.2rem;
+  padding: 0% 5%;
+}
+.form-control-feedback:hover {
+  color: blue;
+}
+.form-control-feedback:focus {
+  color: blue;
+}
+input {
+  width: 100%;
+  background-color: black;
+  color: white;
+  padding: 10px;
+  animation: pop 0.5s alternate;
+}
+.mybtm {
+  margin-top: 10px;
+  background-color: blue;
+  color: white;
+  padding: 10px;
+  border: 0px;
+  border-radius: 23px;
+}
+form {
+  margin: 12px;
+  width: 300px;
+  border: 1px solid #ccc;
+  background-color: antiquewhite;
+}

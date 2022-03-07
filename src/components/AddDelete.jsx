@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
 const AddDelete = () => {
   // get product array form local storage
@@ -9,9 +10,18 @@ const AddDelete = () => {
     // set the products array to the products state
     setProducts(localProducts);
   }, []);
+  const navigate = useNavigate();
 
   return (
     <div className="maindisplay">
+      <div
+        className="checkout"
+        onClick={() => {
+          navigate("/checkout");
+        }}
+      >
+        CheckOut
+      </div>
       {products.map((product) => (
         <div className="product" key={uuidv4()}>
           <div className="product-image">
