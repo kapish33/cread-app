@@ -1,5 +1,5 @@
 import { Box, FormControl, InputLabel, MenuItem, Select } from "@mui/material";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect } from "react";
 import CircularIndeterminate from "./Circle";
 import { v4 as uuidv4 } from "uuid";
 import "./Product.css";
@@ -10,13 +10,21 @@ const Product = () => {
   const [rating, setRating] = React.useState(5);
   const [start, setStart] = React.useState(0);
   const [end, setEnd] = React.useState(10);
-
+  const [finalProducts, setFinalProducts] = React.useState([]);
   const handleChange = (event) => {
     setRating(event.target.value);
-    // as per event.target.value we can have new array of products
-  };
+    console.log(event.target.value);
 
-  console.log(rating, products);
+    // const deepProducts = JSON.parse(JSON.stringify(products));
+    // // filter the products arrays
+    // const filteredProducts = sliceproducts.filter((product) => {
+    //   return product.rating.average >= event.target.value;
+    // });
+    // // set the filtered products to the sliceproducts array
+    // setSliceproducts(filteredProducts);
+  };
+  // console.log(finalProducts);
+
   useEffect(() => {
     var requestOptions = {
       method: "GET",
@@ -127,6 +135,7 @@ const Product = () => {
               </FormControl>
             </Box>
           </div>
+          <> products in cart {finalProducts.length}</>
           <div className="pagination">
             Pagination:
             <span
@@ -139,7 +148,7 @@ const Product = () => {
                 setSliceproducts(products.slice(start, end));
               }}
             >
-              -1
+              Prev
             </span>
             <span
               onClick={() => {
@@ -151,7 +160,7 @@ const Product = () => {
                 setSliceproducts(products.slice(start, end));
               }}
             >
-              +1
+              Next
             </span>
           </div>
           <div className="maindisplay">
@@ -188,6 +197,18 @@ const Product = () => {
                     <div className="product-price-value">{product.price}</div>
                     <div className="product-price-currency">€</div>
                   </div>
+                  <button
+                    onClick={() => {
+                      // add to cart
+                      setFinalProducts([...finalProducts, product]);
+                      localStorage.setItem(
+                        "products",
+                        JSON.stringify(finalProducts)
+                      );
+                    }}
+                  >
+                    Add To Cart
+                  </button>
                 </div>
               </div>
             ))}
