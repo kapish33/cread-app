@@ -27,6 +27,16 @@ const AddDelete = () => {
       >
         CheckOut
       </div>
+      <input
+        onClick={() => {
+          navigate("/");
+        }}
+        style={{
+          width: "300px",
+        }}
+        type="button"
+        value="Home"
+      />
       {products.map((product) => (
         <div className="product" key={uuidv4()}>
           <div className="product-image">

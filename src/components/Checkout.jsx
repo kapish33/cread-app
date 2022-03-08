@@ -48,6 +48,17 @@ const Checkout = () => {
     if (form.phone.length === 0) {
       alert("Please enter your phone");
     }
+    alert(`Your order has been placed. Thank you ${form.name} for your order.`);
+    // clear all input fields
+    setForm({
+      name: "",
+      email: "",
+      address: "",
+      city: "",
+      zip: "",
+      country: "",
+      phone: "",
+    });
   };
 
   return (

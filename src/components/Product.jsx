@@ -153,6 +153,14 @@ const Product = () => {
             {" "}
             You Have {finalProducts.length} Lets CheckOut
           </span>
+          <span
+            className="checkMeOutBtn"
+            onClick={() => {
+              navigate("/product");
+            }}
+          >
+            Checkout
+          </span>
 
           <div className="pagination">
             Pagination:

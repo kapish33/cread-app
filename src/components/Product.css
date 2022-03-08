@@ -95,7 +95,7 @@
   background-color: black;
   color: white;
   padding: 10px;
-  animation: pop 0.5s alternate;
+  animation: snake 0.5s alternate;
 }
 /* // pop aninmation for checkout button */
 @keyframes pop {
@@ -203,4 +203,20 @@ form {
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+}
+.checkMeOutBtn {
+  margin: 12px;
+  width: 300px;
+  border: 1px solid #ccc;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 10px;
+  border-radius: 26px;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  animation: snake 0.5s alternate infinite;
+}
+.checkMeOutBtn:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  box-shadow: 0px 1px 7px rgb(0, 0, 0);
 }
