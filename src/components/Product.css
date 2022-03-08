@@ -170,6 +170,11 @@ form {
   border-radius: 26px;
   box-shadow: 0px 0px 10px rgb(0, 0, 0);
 }
+.checkoutMe:hover {
+  background-color: rgb(0, 0, 0);
+  color: white;
+  box-shadow: 0px 1px 7px rgb(0, 0, 0);
+}
 .searchBar {
   margin: 12px;
   width: 300px;

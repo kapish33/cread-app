@@ -8,7 +8,12 @@ const AddDelete = () => {
     // get product array form local storage
     const localProducts = JSON.parse(localStorage.getItem("products"));
     // set the products array to the products state
-    setProducts(localProducts);
+    // if localProducts is empty
+    if (!localProducts) {
+      setProducts([]);
+    } else {
+      setProducts(localProducts);
+    }
   }, []);
   const navigate = useNavigate();
 

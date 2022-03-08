@@ -5,7 +5,6 @@ import AddDelete from "./components/AddDelete.jsx";
 import Checkout from "./components/Checkout.jsx";
 
 function App() {
-  const navigate = useNavigate();
   return (
     <div className="App">
       <Routes>
@@ -13,13 +12,6 @@ function App() {
           path="/"
           element={
             <>
-              <button
-                onClick={() => {
-                  navigate("/product");
-                }}
-              >
-                Payemnts
-              </button>
               <Product />
             </>
           }

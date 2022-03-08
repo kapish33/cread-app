@@ -13,24 +13,12 @@ const Product = () => {
   const [end, setEnd] = React.useState(10);
   const [finalProducts, setFinalProducts] = React.useState([]);
   const navigate = useNavigate();
-  // get final products form local storage
-  useEffect(() => {
-    const localFinalProducts = JSON.parse(localStorage.getItem("products"));
-    setFinalProducts(localFinalProducts);
-  }, []);
+
   const handleChange = (event) => {
     setRating(event.target.value);
     console.log(event.target.value);
-
-    // const deepProducts = JSON.parse(JSON.stringify(products));
-    // // filter the products arrays
-    // const filteredProducts = sliceproducts.filter((product) => {
-    //   return product.rating.average >= event.target.value;
-    // });
-    // // set the filtered products to the sliceproducts array
-    // setSliceproducts(filteredProducts);
+    // filter products by rating
   };
-  // console.log(finalProducts);
 
   useEffect(() => {
     var requestOptions = {
@@ -163,7 +151,7 @@ const Product = () => {
             className="checkoutMe"
           >
             {" "}
-            Number Of Products in cart {finalProducts.length}
+            You Have {finalProducts.length} Lets CheckOut
           </span>
 
           <div className="pagination">
