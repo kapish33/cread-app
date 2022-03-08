@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 
 const Checkout = () => {
   // get product array form local storage
@@ -27,85 +27,107 @@ const Checkout = () => {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(form);
+    if (form.name.length === 0) {
+      alert("Please enter your name");
+    }
+    if (form.email.length === 0) {
+      alert("Please enter your email");
+    }
+    if (form.address.length === 0) {
+      alert("Please enter your address");
+    }
+    if (form.city.length === 0) {
+      alert("Please enter your city");
+    }
+    if (form.zip.length === 0) {
+      alert("Please enter your zip");
+    }
+    if (form.country.length === 0) {
+      alert("Please enter your country");
+    }
+    if (form.phone.length === 0) {
+      alert("Please enter your phone");
+    }
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div className="form-group">
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          name="name"
-          id="name"
-          value={form.name}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
-          name="email"
-          id="email"
-          value={form.email}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="address">Address</label>
-        <input
-          type="text"
-          name="address"
-          id="address"
-          value={form.address}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="city">City</label>
-        <input
-          type="text"
-          name="city"
-          id="city"
-          value={form.city}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="zip">Zip</label>
-        <input
-          type="text"
-          name="zip"
-          id="zip"
-          value={form.zip}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="country">Country</label>
-        <input
-          type="text"
-          name="country"
-          id="country"
-          value={form.country}
-          onChange={handleChange}
-        />
-      </div>
-      <div className="form-group">
-        <label htmlFor="phone">Phone</label>
-        <input
-          type="text"
-          name="phone"
-          id="phone"
-          value={form.phone}
-          onChange={handleChange}
-        />
-      </div>
-      <button className="mybtm" type="submit">
-        Submit
-      </button>
-    </form>
+    <div className="keep">
+      <form onSubmit={handleSubmit}>
+        <div className="form-group">
+          <label htmlFor="name">Name</label>
+          <input
+            type="text"
+            name="name"
+            id="name"
+            value={form.name}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="email">Email</label>
+          <input
+            type="email"
+            name="email"
+            id="email"
+            value={form.email}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="address">Address</label>
+          <input
+            type="text"
+            name="address"
+            id="address"
+            value={form.address}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="city">City</label>
+          <input
+            type="text"
+            name="city"
+            id="city"
+            value={form.city}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="zip">Zip</label>
+          <input
+            type="text"
+            name="zip"
+            id="zip"
+            value={form.zip}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="country">Country</label>
+          <input
+            type="text"
+            name="country"
+            id="country"
+            value={form.country}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="form-group">
+          <label htmlFor="phone">Phone</label>
+          <input
+            type="text"
+            name="phone"
+            id="phone"
+            value={form.phone}
+            onChange={handleChange}
+          />
+        </div>
+        <button className="mybtm" type="submit">
+          Submit
+        </button>
+      </form>
+    </div>
   );
 };
 

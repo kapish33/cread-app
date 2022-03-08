@@ -3,6 +3,7 @@ import React, { useEffect } from "react";
 import CircularIndeterminate from "./Circle";
 import { v4 as uuidv4 } from "uuid";
 import "./Product.css";
+import { useNavigate } from "react-router-dom";
 const Product = () => {
   const [products, setProducts] = React.useState([]);
   const [sliceproducts, setSliceproducts] = React.useState([]);
@@ -11,6 +12,12 @@ const Product = () => {
   const [start, setStart] = React.useState(0);
   const [end, setEnd] = React.useState(10);
   const [finalProducts, setFinalProducts] = React.useState([]);
+  const navigate = useNavigate();
+  // get final products form local storage
+  useEffect(() => {
+    const localFinalProducts = JSON.parse(localStorage.getItem("products"));
+    setFinalProducts(localFinalProducts);
+  }, []);
   const handleChange = (event) => {
     setRating(event.target.value);
     console.log(event.target.value);
@@ -49,7 +56,10 @@ const Product = () => {
 
     fetch(baseURL, requestOptions)
       .then((response) => response.json())
-      .then((result) => setProducts(result))
+      .then((result) => {
+        setProducts(result);
+        setSliceproducts(result.slice(0, 10));
+      })
       .catch((error) => console.log("error", error));
   };
   const handelSerach = (event) => {
@@ -73,6 +83,8 @@ const Product = () => {
             <span
               onClick={() => {
                 setProductsFunction("reds");
+                setStart(0);
+                setEnd(10);
               }}
             >
               reds
@@ -80,6 +92,8 @@ const Product = () => {
             <span
               onClick={() => {
                 setProductsFunction("whites");
+                setStart(0);
+                setEnd(10);
               }}
             >
               whites
@@ -87,6 +101,8 @@ const Product = () => {
             <span
               onClick={() => {
                 setProductsFunction("sparkling");
+                setStart(0);
+                setEnd(10);
               }}
             >
               sparkling
@@ -94,6 +110,8 @@ const Product = () => {
             <span
               onClick={() => {
                 setProductsFunction("rose");
+                setStart(0);
+                setEnd(10);
               }}
             >
               rose
@@ -101,6 +119,8 @@ const Product = () => {
             <span
               onClick={() => {
                 setProductsFunction("port");
+                setStart(0);
+                setEnd(10);
               }}
             >
               port
@@ -108,6 +128,7 @@ const Product = () => {
           </div>
           <div className="searchitems">
             <input
+              className="searchBar"
               onKeyUp={(event) => handelSerach(event)}
               type="text"
               name=""
@@ -135,7 +156,16 @@ const Product = () => {
               </FormControl>
             </Box>
           </div>
-          <> products in cart {finalProducts.length}</>
+          <span
+            onClick={() => {
+              navigate("/product");
+            }}
+            className="checkoutMe"
+          >
+            {" "}
+            Number Of Products in cart {finalProducts.length}
+          </span>
+
           <div className="pagination">
             Pagination:
             <span
@@ -148,7 +178,7 @@ const Product = () => {
                 setSliceproducts(products.slice(start, end));
               }}
             >
-              Prev
+              Previous
             </span>
             <span
               onClick={() => {
@@ -162,6 +192,7 @@ const Product = () => {
             >
               Next
             </span>
+            <span>This Is Page Number: {start / 10 + 1}</span>
           </div>
           <div className="maindisplay">
             {sliceproducts.map((product) => (

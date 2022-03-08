@@ -11,7 +11,21 @@
 .select > span {
   font-size: 1.2rem;
   padding: 0% 5%;
+  animation: randomColor 0.8s ease-in-out infinite alternate;
 }
+/* randomColor animation */
+@keyframes randomColor {
+  0% {
+    color: #03045e;
+  }
+  50% {
+    color: #00b4d8;
+  }
+  100% {
+    color: #90e0ef;
+  }
+}
+
 .select > span:hover {
   color: blue;
 }
@@ -45,13 +59,30 @@
   justify-content: center;
   align-items: center;
   border: 1px dotted #ccc;
-  background-color: rgb(255, 238, 0);
+  background-color: #21325e;
+  color: #3e497a;
+  margin-top: 12px;
 }
 .pagination > * {
   margin: 5px;
-  width: 35px;
-  background-color: aqua;
   padding: 12px;
+  border: 1px dotted #ccc;
+  background-color: rgb(255, 196, 0);
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px rgb(255, 255, 255);
+  animation: backgroud-color 0.5s ease-in-out infinite alternate;
+}
+/* backgroud-color animation */
+@keyframes backgroud-color {
+  0% {
+    background-color: rgb(255, 196, 0);
+  }
+  50% {
+    background-color: rgb(255, 238, 0);
+  }
+  100% {
+    background-color: rgb(255, 196, 0);
+  }
 }
 .searchitems > input {
   width: 200px;
@@ -110,6 +141,9 @@ input {
   color: white;
   padding: 10px;
   animation: pop 0.5s alternate;
+  border-radius: 25px;
+  box-shadow: 0px 0px 10px rgb(17, 12, 12);
+  animation: snake 0.5s alternate infinite;
 }
 .mybtm {
   margin-top: 10px;
@@ -121,7 +155,47 @@ input {
 }
 form {
   margin: 12px;
-  width: 300px;
+  width: 350px;
   border: 1px solid #ccc;
   background-color: antiquewhite;
+  padding: 10px;
+}
+.checkoutMe {
+  margin: 12px;
+  width: 300px;
+  border: 1px solid #ccc;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 10px;
+  border-radius: 26px;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+}
+.searchBar {
+  margin: 12px;
+  width: 300px;
+  border: 1px solid #ccc;
+  background-color: rgb(0, 0, 0);
+  color: white;
+  padding: 10px;
+  border-radius: 26px;
+  box-shadow: 0px 0px 10px rgb(0, 0, 0);
+  animation: snake 0.5s alternate infinite;
+}
+@keyframes snake {
+  0% {
+    transform: translate(0, 0);
+  }
+  50% {
+    transform: translate(10px, 0);
+  }
+  100% {
+    transform: translate(0, 0);
+  }
+}
+.keep {
+  /* center it */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
