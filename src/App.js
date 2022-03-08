@@ -1,4 +1,4 @@
-import { Route, Routes, useNavigate } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 import "./App.css";
 import Product from "./components/Product";
 import AddDelete from "./components/AddDelete.jsx";
